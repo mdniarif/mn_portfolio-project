@@ -1,0 +1,1 @@
+Standalone offline preview: open index.html in a modern browser. This is a self-contained preview. The official Vite build from the React source is generated with npm install && npm run build when npm registry access is available.
