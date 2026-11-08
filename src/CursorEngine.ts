@@ -13,8 +13,8 @@ export class CursorEngine {
   setProgress(p:number){this.progress=p;}
   setTargetPoints(points:{x:number;y:number}[]){this.points=points;}
   setHovered(label:string){this.hovered=label;}
-  private loop=(t:number)=>{const dt=Math.min(40,t-this.last||16);this.last=t;this.draw(dt);this.raf=requestAnimationFrame(this.loop);};
-  private draw(dt:number){const {w,h,b,f}=this;b.clearRect(0,0,w,h);f.clearRect(0,0,w,h);const p=this.progress;const nameMode=p>.17&&p<.64;const arrival=Math.min(1,Math.max(0,p/.18));
+  private loop=(t:number)=>{const dt=Math.min(40,t-this.last||16);this.last=t;this.draw(t);this.raf=requestAnimationFrame(this.loop);};
+  private draw(t:number){const {w,h,b,f}=this;b.clearRect(0,0,w,h);f.clearRect(0,0,w,h);const p=this.progress;const nameMode=p>.17&&p<.64;const arrival=Math.min(1,Math.max(0,p/.18));
     const contact=document.querySelector('#contact'); const contactRect=contact?.getBoundingClientRect();
     const copyButton=document.querySelector('.email-copy button') as HTMLElement|null;
     const hoveredCard=this.hovered?(document.querySelector('.work-card:hover') as HTMLElement|null):null;
